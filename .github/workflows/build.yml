@@ -1,0 +1,42 @@
+name: Build TranslateNX (Chinese)
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: devkitpro/devkita64:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Switch libraries
+        run: |
+          dkp-pacman -S --noconfirm --needed \
+            switch-curl switch-mbedtls switch-zlib \
+            switch-sdl2 switch-sdl2_ttf switch-sdl2_image switch-sdl2_mixer
+
+      - name: Build overlay (.ovl)
+        run: make -C overlay -j"$(nproc)"
+
+      - name: Build app (.nro)
+        run: make -C app -j"$(nproc)"
+
+      - name: Package SD card layout
+        run: |
+          mkdir -p dist/switch/.overlays dist/config/translate
+          cp overlay/translatenx.ovl dist/switch/.overlays/
+          cp app/TranslateNX.nro dist/switch/
+          cp overlay/config.example.ini dist/config/translate/config.ini
+          cd dist && zip -r ../TranslateNX-zh.zip .
+
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: TranslateNX-zh
+          path: |
+            TranslateNX-zh.zip
+            overlay/translatenx.ovl
+            app/TranslateNX.nro

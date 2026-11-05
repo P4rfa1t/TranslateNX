@@ -125,4 +125,65 @@ Target Language: Your own language in which you want the translation to be made.
 Start Translating: While the text you want to translate in the game is on the screen, open the TranslateNX interface and press the "Start Translation" button.
 Note: The process may be a little slow the first time, translation speed will vary depending on the API you use and your internet connection.
 View the Result: After a short while, the list of detected texts will appear on the screen. Just click on the text you want to see its translation in detail.)";
+    HELP_TEXTS["ZH"] = u8R"(### 第 1 步：关键准备（必做）
+开始使用应用前，必须调大 UltraHand 的内存限制，以防止 Switch 崩溃。
+
+打开 UltraHand 菜单。
+按 + 进入设置，然后进入 System（系统）。
+将 Overlay Memory（悬浮层内存）从 4MB 调高到 8MB。
+
+### 第 2 步：获取所需的 API
+TranslateNX 需要两套服务才能以最佳性能运行：
+OCR（光学字符识别）：扫描屏幕上的文字，并将其转换为可编辑、可复制的文本。
+翻译服务：将扫描到的文本即时翻译成你想要的语言。
+（建议：为了获得最佳、最快且免费的体验，OCR 推荐使用 Google Cloud Vision，翻译推荐使用 DeepL。其他替代方案见下方。）
+
+## OCR API 选项
+
+## 1. Google Cloud Vision（每月 1000 次）— ⭐ 推荐
+前往 Google Cloud Vision 页面，点击 "Try Vision AI Free" 并完成注册流程。
+在打开的 Cloud Vision API 页面点击 "Enable"（启用）。
+从左侧菜单进入 Credentials（凭据）标签页，在顶部依次选择 Create Credentials > API Key。
+为 API 命名，在 Select API restrictions 中选择 Cloud Vision API，点击 OK，然后点击 Create。几秒钟后即可看到你的 API 密钥。
+
+## 2. OCR.space（每天 500 次）— 备选
+前往 OCR.space Free Key 页面注册。
+点击邮件中的确认链接。确认后几秒钟内，你会收到第二封包含 API 密钥的邮件。
+
+## 翻译 API 选项
+
+## 1. DeepL（一次性 100 万字符）— ⭐ 推荐
+注意：100 万字符的额度通常可以用很久。额度用完后，可以注册新的免费账户或升级为付费套餐。
+前往 DeepL 网站注册。点击右上角的头像，然后点击 Account（账户）。
+进入左下角的 API Plans 菜单，订阅免费套餐（可能会要求填写一些信息，但不会收费）。
+在打开的页面中点击 API Keys & Limits 标签页，然后点击 Create Key。
+为 API 命名，勾选 "All access"，然后点击 Create Key。
+
+## 2. Google Cloud Translate（每月 50 万字符）— 备选
+注意：注册时可能会要求填写银行卡信息，并可能有一笔小额预授权，之后会退还。只要不超过每月额度就是完全免费的。如果使用该服务，建议偶尔检查一下额度。
+前往 Google Cloud Translate，点击 "Try Translation API" 并完成注册流程。
+在 Cloud Translation API 页面点击 "Enable"（启用）。
+进入 Credentials 标签页，依次选择 Create Credentials > API Key。
+为 API 命名，在限制中选择 Cloud Translation API，然后点击 Create。密钥会显示在屏幕上。
+
+## 3. MyMemory（每天 5000 字符）— 应急方案
+该服务已内置于 TranslateNX，无需申请 API 密钥。
+在应用的翻译 API 设置中直接选择即可，适合应急使用。
+
+### 第 3 步：在哪里填写 API 密钥？
+可以通过以下两种方式之一把获取到的 API 密钥填入应用：
+方法 1（在 Switch 上）：通过 Hbmenu 打开 TranslateNX 应用，直接在界面中填写 API 密钥。
+方法 2（在电脑上，更方便）：将 Switch 连接到电脑。把 SdCard/config/translate 路径下的 config.ini 文件复制到电脑桌面。用文本编辑器打开，将 API 密钥粘贴到对应位置，保存后再放回 Switch 的同一文件夹。
+
+### 第 4 步：应用的使用方法
+重要提示：请确保设备上已安装 UltraHand 和 SysModule。
+打开 UltraHand：从屏幕左边缘向右滑动手指，或按下 L + R + 十字键下 + 右摇杆（R-Stick）组合键，呼出 UltraHand 界面。
+启动 TranslateNX：在列表中选中 Translate 并打开应用。（提示：选中时按 Y 键可设置快捷方式，方便快速访问。）
+配置设置：进入设置页面，选择你获取的 OCR 和翻译 API。
+设置语言：
+源语言：你正在玩的游戏的原始语言。
+目标语言：你希望翻译成的母语。
+开始翻译：当游戏中出现需要翻译的文字时，打开 TranslateNX 界面并点击“开始翻译”按钮。
+注意：首次翻译可能会稍慢一些，翻译速度取决于你使用的 API 和网络连接。
+查看结果：稍等片刻，屏幕上会列出识别到的文字。点击想要查看详细翻译的文字即可。)";
 }

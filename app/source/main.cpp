@@ -15,13 +15,13 @@
 // -------------------------------------------------------
 // DIL KODLARI & ISIMLERI (UTF-8)
 // -------------------------------------------------------
-static const int  NUM_LANGS  = 2;
+static const int  NUM_LANGS  = 3;
 static const char* LC[]      = {
-    "TR","EN"
+    "TR","EN","ZH"
 };
 
 static const char* LANG_NAMES[] = {
-    u8"Türkçe", u8"English"
+    u8"Türkçe", u8"English", u8"中文"
 };
 
 static const char* getLangName(const std::string& uiLang, int idx) {
@@ -47,6 +47,12 @@ static void initT() {
               {"ocr",u8"OCR Services"},{"tr2",u8"Translation Services"},
               {"emp",u8"(Empty) - press [A] to edit"},{"uil",u8"UI Language"},
               {"ft",u8"[A] Select   [L/R] Menu Tab   [Up/Down] Scroll   [+] Exit"}};
+
+    T["ZH"]={{"k0",u8"API 密钥"},{"k1",u8"语言设置"},{"k2",u8"指南与帮助"}, {"k3",u8"联系方式"},
+              {"c_title", u8"全部链接"}, {"c_desc", u8"扫描下方二维码即可联系开发者\n并访问其链接。"},
+              {"ocr",u8"OCR 服务"},{"tr2",u8"翻译服务"},
+              {"emp",u8"（未填写）- 按 [A] 编辑"},{"uil",u8"界面语言"},
+              {"ft",u8"[A] 选择   [L/R] 切换菜单   [上/下] 滚动   [+] 退出"}};
 
     initHelpTexts();
     for (auto& pair : HELP_TEXTS) {
